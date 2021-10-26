@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import logoImg from '../../../public/logo.svg';
 import { ActiveLink } from '../ActiveLink';
 import { SignInButton } from '../SignInButton';
 import styles from './styles.module.scss';
@@ -8,7 +6,7 @@ export const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <Image src={logoImg} alt='ig.news' />
+        <img src='../../../public/logo.svg' alt='ig.news' />
 
         <nav>
           <ActiveLink activeClassName={styles.active} href='/'>
