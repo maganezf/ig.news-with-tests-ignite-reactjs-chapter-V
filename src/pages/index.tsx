@@ -1,8 +1,8 @@
+import { SubscribeButton } from 'components/SubscribeButton';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import styles from '../../styles/pages/home.module.scss';
-import { SubscribeButton } from '../components/SubscribeButton';
-import { stripe } from '../services/stripe';
+import { stripe } from 'services/stripe';
+import styles from 'styles/pages/home.module.scss';
 
 interface HomeProps {
   product: {
