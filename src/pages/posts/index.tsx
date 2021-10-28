@@ -1,11 +1,9 @@
-import { GetStaticProps } from 'next';
-import Link from 'next/link';
-import Head from 'next/head';
-
 import Prismic from '@prismicio/client';
-import { getPrismicClient } from 'services/prismic';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 import { RichText } from 'prismic-dom';
-
+import { getPrismicClient } from 'services/prismic';
 import styles from './styles.module.scss';
 
 type PrismicContent = {
