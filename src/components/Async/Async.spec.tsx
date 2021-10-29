@@ -1,7 +1,7 @@
 import {
   render,
   screen,
-  waitForElementToBeRemoved
+  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import { Async } from '.';
 
