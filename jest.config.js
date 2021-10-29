@@ -9,4 +9,12 @@ module.exports = {
     '\\.(scss|css|sass|png|jpg|svg)$': 'identity-obj-proxy',
   },
   moduleDirectories: ['node_modules', 'src'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.tsx',
+    '!src/**/*.spec.tsx',
+    '!src/**/_app.tsx',
+    '!src/**/_document.tsx',
+  ],
+  coverageReporters: ['json', 'lcov'],
 };
