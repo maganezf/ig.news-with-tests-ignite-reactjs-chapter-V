@@ -1,4 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved
+} from '@testing-library/react';
 import { Async } from '.';
 
 describe('Async component', () => {
@@ -7,16 +11,27 @@ describe('Async component', () => {
 
     expect(screen.getByText('Hello World')).toBeInTheDocument();
 
-    await waitFor(
-      () => {
-        return expect(screen.getByText('Async Button')).toBeInTheDocument();
-      },
-      {
-        timeout: 3000,
-      }
-    );
+    await waitForElementToBeRemoved(screen.queryByText('Async Button'), {
+      timeout: 3000,
+    });
   });
 });
 
-// you can use "waitFor" or "findByText" for any async operations
-// expect(await screen.findByText('Async Button', {}, { timeout: 3000 })).toBeInTheDocument();
+/*
+  use "waitFor" with ".not" to check if the document is not visible (in this case)
+
+  await waitFor(
+    () => {
+      return expect(
+        screen.queryByText('Async Button')
+      ).not.toBeInTheDocument();
+    },
+    {
+      timeout: 3000,
+    }
+  );
+
+  or use "waitForElementToBeRemoved", its already to do this already negating the condition
+
+  ps: using "queryByText", it doesn't throw an error if it doesn't find it.
+ */
